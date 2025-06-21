@@ -7,11 +7,10 @@ Smart Study Hub is a full-stack task tracking platform designed to help students
 - Students need to keep a track of how they are utilising their time.
 - Add, edit, delete tasks with category & date filters  
 - Visualize progress using interactive charts and tables
-- User authentication with Password hashing with bcryptjs
 - Enabled filtering tasks by category and date
 - Clean, responsive UI with Bootstrap  
 
 ## 🛠 Tech Stack
 
 - **Frontend:** React, Bootstrap  
-- **Backend:** Node.js, Express.js, MongoDB, bcryptjs
+- **Backend:** Node.js, Express.js, MongoDB
