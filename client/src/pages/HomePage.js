@@ -46,6 +46,7 @@ const HomePage = () => {
 
   useEffect(() => {
     getAllTask();
+    // eslint-disable-next-line
   }, [frequency, selectedDate, type]);
 
   const handleDelete = async (record) => {

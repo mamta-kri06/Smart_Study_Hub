@@ -23,10 +23,10 @@ app.get("/", (req, res) => {
   res.send("hello");
 });
 
-app.use("/api/v1/users", require("./routes/userRoute"));
+app.use("/users", require("./routes/userRoute"));
 
 //task route
-app.use("/api/v1/tasks", require("./routes/taskRoute"));
+app.use("/tasks", require("./routes/taskRoute"));
 
 //port
 const PORT = process.env.PORT || 8080;

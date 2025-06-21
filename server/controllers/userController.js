@@ -1,18 +1,13 @@
 const userModel = require("../models/userModel");
-const bcrypt = require("bcryptjs");
 
-//login callback
+// login callback
 const loginController = async (req, res) => {
   try {
     const { email, password } = req.body;
-
-    const user = await userModel.findOne({ email });
-    if (!user) return res.status(400).json({ msg: "User not found" });
-
-    const isMatch = await bcrypt.compare(password, user.password);
-
-    if (!isMatch) return res.status(401).json({ msg: "Invalid credentials" });
-
+    const user = await userModel.findOne({ email, password });
+    if (!user) {
+      return res.status(404).send("User Not Found");
+    }
     res.status(200).json({
       success: true,
       user,
@@ -20,28 +15,15 @@ const loginController = async (req, res) => {
   } catch (error) {
     res.status(400).json({
       success: false,
-      user,
+      error,
     });
   }
 };
 
-//register callback
+//Register Callback
 const registerController = async (req, res) => {
   try {
-    const { name, email, password } = req.body;
-
-    const existingUser = await userModel.findOne({ email });
-    if (existingUser)
-      return res.status(400).json({ msg: "User already exists" });
-
-    const hashedPassword = await bcrypt.hash(password, 10);
-
-    const newUser = new userModel({
-      name,
-      email,
-      password: hashedPassword,
-    });
-
+    const newUser = new userModel(req.body);
     await newUser.save();
     res.status(201).json({
       success: true,
