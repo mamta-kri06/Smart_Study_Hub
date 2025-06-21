@@ -1,0 +1,36 @@
+.filters-section {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  margin-top: 1rem;
+}
+
+.filters-section h6 {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.icons-view svg {
+  font-size: 1.8rem;
+  color: #6c757d;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.icons-view svg:hover,
+.icons-view .active-icon {
+  color: #0d6efd;
+  transform: scale(1.1);
+}
+
+.action-icon {
+  color: #495057;
+  font-size: 1.2rem;
+  transition: color 0.2s;
+}
+
+.action-icon:hover {
+  color: #dc3545;
+}
